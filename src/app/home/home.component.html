@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title">Find a room</h3>
+                        <form [formGroup]="searchRoomForm" (ngSubmit)="onSubmit(searchRoomForm.value)">
+                            <label>Check in date:</label>
+                            <div class="form-group">
+                                <div class="input-group date">
+                                    <input class="form-control" placeholder="Choose check in date" name="dp" formControlName="checkin" ngbDatepicker #checkInDate="ngbDatepicker"
+                                        (click)="checkInDate.toggle()">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <label>Check out date:</label>
+                            <div class="form-group">
+                                <div class="input-group date">
+                                    <input class="form-control" placeholder="Choose check out date" name="dp" formControlName="checkout" ngbDatepicker #checkOutDate="ngbDatepicker"
+                                        (click)="checkOutDate.toggle()">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block btn-round">Check availble</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <app-introduce-room></app-introduce-room>
+    <app-list-services></app-list-services>
+    <app-feed-back></app-feed-back>
+</div>
