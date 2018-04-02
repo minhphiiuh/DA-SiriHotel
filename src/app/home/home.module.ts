@@ -1,4 +1,3 @@
-import { ListServicesComponent } from './list-services/list-services.component';
 import { FeedBackComponent } from './feed-back/feed-back.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,8 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { ComponentsModule } from '../components/components.module';
-import { IntroduceRoomComponent } from './introduce-room/introduce-room.component';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
+import { IntroduceComponent } from './introduce/introduce.component';
+
 
 @NgModule({
     imports: [
@@ -24,8 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     declarations: [
         HomeComponent,
         FeedBackComponent,
-        IntroduceRoomComponent,
-        ListServicesComponent
+        IntroduceComponent,
+        ContactComponent
     ],
     exports: [
         HomeComponent

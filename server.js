@@ -5,7 +5,6 @@ const http = require('http');
 const bodyParser = require('body-parser');
 // Get our API routes
 const api = require('./routes/config.api');
-
 const app = express();
 
 // Parsers for POST data
@@ -16,11 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, './dist/')));
 
 // // Set our api routes
-// const router = express.Router();
-// router.get('/', (req, res) => {
-//   res.send("REST API :)");
-// });
-// router.use('/roomType', roomTypeApi);
 app.use('/api', api);
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

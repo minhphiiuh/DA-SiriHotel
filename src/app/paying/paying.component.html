@@ -1,0 +1,42 @@
+<!-- <div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="section text-center">
+                <h2>
+                    <span class="red-strong">Thanh toán</span>
+                </h2>
+                <hr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto">
+                            <div class=" bill-card">
+                                <h3>Thông tin đơn hàng</h3>
+                                <div>Ngày nhận phòng: {{ checkin }}</div>
+                                <div>Ngày trả phòng: {{ checkout }}</div>
+                                <div>Danh sách phòng: </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Loại phòng</th>
+                                            <th>Số lượng</th>
+                                            <th>Thành tiền</th>
+                                        </tr>
+                                        <tr *ngFor="let item of items">
+                                            <td *ngIf="item.NumberOfBooked > 0">{{ item.Name }}</td>
+                                            <td *ngIf="item.NumberOfBooked > 0">{{ item.NumberOfBooked }}</td>
+                                            <td *ngIf="item.NumberOfBooked > 0">{{ item.NumberOfBooked * item.Price }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h4>Tổng tiền: {{ total }}</h4>
+                            </div>
+                            <button style="text-align:center;" type="submit" class="btn btn-danger btn-round mr-auto ml-auto">Thanh toán</button>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->

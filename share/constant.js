@@ -7,12 +7,11 @@ module.exports = {
     Table: {
         RoomType: {
             TableName: "RoomType",
-            PartitionKey: "RoomType"
+            PartitionKey: "Name"
         },
         Transaction: {
             TableName: "Transaction",
-            PartitionKey: "RoomType",
-            SortKey: "TransactionId"
+            PartitionKey: "TransactionId"
         }
     }
 }

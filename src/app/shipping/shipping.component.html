@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="section text-center">
+                <h2>
+                    <span class="red-strong">Xác nhận đặt phòng</span>
+                </h2>
+                <hr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto">
+                            <h2>Thông tin khách hàng</h2>
+                            <form style="text-align:left; margin: 10px;" [formGroup]="customerForm" (ngSubmit)="saveCustomerInfoToDb(customerForm.value)">
+                                <div class="form-group">
+                                    <label>Họ tên:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập họ tên" formControlName="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>CMND:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập chứng minh nhân dân" formControlName="cmnd">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email:</label>
+                                    <input type="email" class="form-control" placeholder="Nhập email" formControlName="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Số điện thoại:</label>
+                                    <input type="text" class="form-control" placeholder="Nhập số điện thoại" formControlName="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment">Ghi chú:</label>
+                                    <textarea class="form-control" rows="5" id="comment" placeholder="Nhập ghi chú" formControlName="notes"></textarea>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Tôi đã đọc và chấp nhận các chính sách của khách sạn, điều khoản & điều
+                                        kiện, và chính sách quyền riêng tư</label>
+                                </div>
+                                <button style="text-align:center;" type="submit" class="btn btn-danger btn-round mr-auto ml-auto">Đặt phòng</button>
+                            </form>
+                        </div>
+                        <div class="col-md-4 ml-auto">
+                            <div class=" bill-card">
+                                <h3>Thông tin đơn hàng</h3>
+                                <div>Ngày nhận phòng: {{ checkin }}</div>
+                                <div>Ngày trả phòng: {{ checkout }}</div>
+                                <div>Danh sách phòng: </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Loại phòng</th>
+                                            <th>Số lượng</th>
+                                            <th>Thành tiền</th>
+                                        </tr>
+                                        <tr *ngFor="let item of items">
+                                            <td *ngIf="item.NumberOfBooked > 0">{{ item.Name }}</td>
+                                            <td *ngIf="item.NumberOfBooked > 0">{{ item.NumberOfBooked }}</td>
+                                            <td *ngIf="item.NumberOfBooked > 0">{{ item.NumberOfBooked * item.Price }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h4>Tổng tiền: {{ total }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

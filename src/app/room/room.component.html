@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="my-container">
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+    </div>
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="section text-center">
+                <h2>
+                    <span class="red-strong">Loại phòng</span>
+                </h2>
+                <hr>
+                <div class="container">
+                    <div class="row border-bottom" *ngFor="let type of roomTypes">
+                        <div class="col-md-4">
+                            <img class="img-responsive img-rounded" [src]="type.Preview">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="left-align">
+                                <h3 class="title">Loại phòng:
+                                    <span class="blue-strong">{{ type.Name }}</span>
+                                </h3>
+                                <div>
+                                    <span class="red-strong">Giá:</span> {{ type.Price }}$
+                                </div>
+                                <div>
+                                    <a [routerLink]="['/rooms', type.Name]">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

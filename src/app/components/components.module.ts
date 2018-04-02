@@ -13,10 +13,12 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ServerInternalErrorComponent } from './server-internal-error/server-internal-error.component';
 
 @NgModule({
     imports: [
-        CommonModule,
+    CommonModule,
         FormsModule,
         NgbModule,
         NouisliderModule,
@@ -30,7 +32,9 @@ import { NgbdModalContent } from './modal/modal.component';
         NucleoiconsComponent,
         NotificationComponent,
         NgbdModalComponent,
-        NgbdModalContent
+        NgbdModalContent,
+        NotFoundComponent,
+        ServerInternalErrorComponent
     ],
     entryComponents: [NgbdModalContent],
     exports: [ComponentsComponent]

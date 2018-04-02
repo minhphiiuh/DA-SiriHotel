@@ -6,7 +6,7 @@
 // Dependenci
 const aws = require("aws-sdk");
 const constant = require('../share/constant');
-aws.config.loadFromPath('./config/configAws.json');
+aws.config.loadFromPath('./aws_config.json');
 // Variable
 const roomType = constant.Table.RoomType;
 const tableName = roomType.TableName;
@@ -35,7 +35,7 @@ exports.FindRoomTypeByName = function (roomType, callBack) {
         TableName: tableName,
         KeyConditionExpression: "#type = :value",
         ExpressionAttributeNames: {
-            "#type": "RoomType"
+            "#type": "Name"
         },
         ExpressionAttributeValues: {
             ":value": roomType
@@ -75,7 +75,7 @@ exports.Update = function (roomType, callBack) {
         TableName: tableName,
         Key: {
             // partitionKey: roomType.RoomType
-            "RoomType": roomType.RoomType
+            "Name": roomType.Name
         },
         UpdateExpression: "set Info = :i",
         ExpressionAttributeValues: {
@@ -96,7 +96,7 @@ exports.Remove = function (roomType, callBack) {
         TableName: tableName,
         Key: {
             // partitionKey: roomType.RoomType
-            "RoomType": roomType.RoomType
+            "Name": roomType.Name
         }        
         // ConditionExpression: "RoomType = :val",
         // ExpressionAttributeValues: {

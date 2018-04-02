@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <div class="my-container">
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+    </div>
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="section text-center">
+                <h2>
+                    <span class="red-strong">{{ name }}</span>
+                </h2>
+                <hr>
+                <div>
+                    <div class="row">
+                        <div class="col-md-8 mr-auto ml-auto">
+                            <div class="card page-carousel">
+                                <ngb-carousel>
+                                    <ng-template ngbSlide *ngFor="let img of images">
+                                        <img [src]="img" alt="Random first slide">
+                                        <div class="carousel-caption">
+                                            <p>Somewhere</p>
+                                        </div>
+                                    </ng-template>
+                                </ngb-carousel>
+                            </div>
+                        </div>
+                        <div class="col-md-4 left-align">
+                            <div>Diện tích:
+                                <span class="blue-strong">{{ roomType.RoomSize }} m
+                                    <sup>2</sup>
+                                </span>
+                            </div>
+                            <div>Giá:
+                                <span class="blue-strong">{{ roomType.Price }} $</span>
+                            </div>
+                            <div>Mô tả: {{ roomType.Description }}</div>
+                        </div>
+                    </div>
+                </div>
+                <a [routerLink]="['/rooms']">Trở về</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,6 +3,7 @@ const express = require('express');
 // Get our API routes
 const roomTypeApi = require('./roomType.api');
 const transactionApi = require('./transaction.api');
+const calendarApi = require('./calendar.api');
 
 const app = express();
 const router = express.Router();
@@ -12,6 +13,8 @@ router.get('/', (req, res) => {
 });
 router.use('/roomType', roomTypeApi);
 router.use('/transaction', transactionApi);
+router.use('/calendar', calendarApi);
+
 
 module.exports = router;
 

@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
                     <div class="card card-register">
-                        <h3 class="title">Find a room</h3>
-                        <form [formGroup]="searchRoomForm" (ngSubmit)="onSubmit(searchRoomForm.value)">
-                            <label>Check in date:</label>
+                        <h3 class="title">Đặt phòng</h3>
+                        <form [formGroup]="searchRoomForm" (ngSubmit)="checkAvailble(searchRoomForm.value)">
+                            <label>Nhận phòng:</label>
                             <div class="form-group">
                                 <div class="input-group date">
                                     <input class="form-control" placeholder="Choose check in date" name="dp" formControlName="checkin" ngbDatepicker #checkInDate="ngbDatepicker"
@@ -19,7 +19,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <label>Check out date:</label>
+                            <label>Trả phòng:</label>
                             <div class="form-group">
                                 <div class="input-group date">
                                     <input class="form-control" placeholder="Choose check out date" name="dp" formControlName="checkout" ngbDatepicker #checkOutDate="ngbDatepicker"
@@ -31,7 +31,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger btn-block btn-round">Check availble</button>
+                            <button type="submit" class="btn btn-danger btn-block btn-round">Tìm</button>
                         </form>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
 </div>
 
 <div class="main">
-    <app-introduce-room></app-introduce-room>
-    <app-list-services></app-list-services>
+    <app-introduce></app-introduce>
+    <app-contact></app-contact>
     <app-feed-back></app-feed-back>
 </div>

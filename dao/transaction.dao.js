@@ -6,12 +6,11 @@
 // Dependenci
 const aws = require("aws-sdk");
 const constant = require('../share/constant');
-aws.config.loadFromPath('./config/configAws.json');
+aws.config.loadFromPath('./aws_config.json');
 // Variable
 const transaction = constant.Table.Transaction;
 const tableName = transaction.TableName;
 const partitionKey = transaction.PartitionKey;
-const sortKey = transaction.SortKey;
 const docClient = new aws.DynamoDB.DocumentClient();
 
 /**
@@ -28,48 +27,22 @@ exports.FindAll = (callBack) => {
 }
 /**
  * Get list transaction of roomType
- * @param {*} roomType 
+ * @param {*} id 
  * @param {*} callBack 
  */
-exports.FindByRoomType = (roomType, callBack) => {
+exports.FindByRoomType = (id, callBack) => {
     var params = {
         TableName: tableName,
-        KeyConditionExpression: "#type = :value",
+        KeyConditionExpression: "#id = :value",
         ExpressionAttributeNames: {
-            "#type": "RoomType"
+            "#id": "TransactionId"
         },
         ExpressionAttributeValues: {
-            ":value": roomType
+            ":value": id
         }
     };
     docClient.query(params, function (err, data) {
         callBack(err, data);
-    });
-}
-
-/**
- * Return umber of room have reservation from CheckIn to CheckOut
- * @param {*} startDate 
- * @param {*} endDate 
- * @param {*} callBack 
- */
-exports.CountReservationByRoomTypeFromCheckInToCheckOut = (roomType, checkIn, checkOut, callBack) => {
-    var params = {
-        TableName: tableName,
-        KeyConditionExpression: "#type = :value",
-        ExpressionAttributeNames: {
-            "#type": "RoomType"
-        },
-        ExpressionAttributeValues: {
-            ":value": roomType
-        }
-    };
-    docClient.query(params, function (err, data) {
-        if (!err) {
-            data.Items.forEach(item => {
-                //conditions
-            });
-        }
     });
 }
 
@@ -83,7 +56,6 @@ exports.Add = function (transaction, callBack) {
         Item: transaction
     };
     docClient.put(params, function (err, data) {
-        console.log(err);
         callBack(err, data);
     });
 }
@@ -96,7 +68,6 @@ exports.Update = function (transaction, callBack) {
     var params = {
         TableName: tableName,
         Key: {
-            "RoomType": transaction.RoomType,
             "TransactionId": transaction.TransactionId
         },
         UpdateExpression: "set Info = :i",
@@ -109,3 +80,19 @@ exports.Update = function (transaction, callBack) {
         callBack(err, data);
     });
 };
+
+/**
+ * @description Remove transaction
+ * @author PhiNguyen
+ */
+exports.Remove = function (id, callBack) {
+    var params = {
+        TableName: tableName,
+        Key: {
+            "TransactionId": id
+        }        
+    };
+    docClient.delete(params, function (err, data) {
+        callBack(err, data);
+    });
+}
